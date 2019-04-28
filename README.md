@@ -1,3 +1,44 @@
+Steps to run the project:
+
+1> For the interface :
+->Install node
+->Browse to the repo downloaded or cloned where package.json file exits
+->run commmand "npm i"
+->run command npm run start
+->Interface will open with all the available actions on a local server.
+
+
+2>For code level access (Just to test the methods directly):
+->copy content of file named library.js to console ,hit enter.
+->All the functioned are named accordingly,e.g for adding a person addPerson() function has to be called with 2 parameters :
+a>Name of th person 
+b>Value of SV Stop field: "Y" to stop the lead progress ,"N" to continue.
+
+Note All the values of paramters should be passed as strings eg. Here is the example to call following functions:
+
+ addPerson(name,svstop):  addPerson("Gaurav","Y"); 
+ searchPersonByName(name): searchPersonByName("Gaurav");
+ updatePersonByid(id,name,email,svstop) : updatePersonByid("3","NEWNAME","NEWEMAILVALUE@SDFS.com","N");
+
+And so on......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
