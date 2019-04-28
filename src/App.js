@@ -122,17 +122,8 @@ updatesv(e){
           Check Webhook hit for SV Stop
         </p>
           <input className="custonInput" placeholder="Enter Webhook Response" value={this.state.wresponse} id="wresponse" onChange={(e)=>{this.wresponse(e)}}/>
-          <br/>
+    
           <button className="custonButton" onClick={()=>{this.updateData("CheckWebhook")}}>Check SV Status</button>
-        
-        <p className="App-intro">
-          Add a person
-        </p>
-          <input className="custonInput" placeholder="Enter Name" value={this.state.name} id="name" onChange={(e)=>{this.addname(e)}}/>
-          <br/>
-          <input className="custonInput" placeholder="Enter SVStop value :Y or N" value={this.state.addsv} id="addsv" onChange={(e)=>{this.addsv(e)}}/>
-          <br/><button className="custonButton" onClick={()=>{this.updateData("Name")}}>Add Name</button>
-        
         <p className="App-intro">
           Search a person
         </p>
@@ -144,9 +135,8 @@ updatesv(e){
           <br/>
           <p className="App-into">Update Person</p>
           <input className="custonInput" placeholder="Enter userId" value={this.state.uid} id="uid" onChange={(e)=>{this.updateid(e)}}/>
-          <br/><input className="custonInput" placeholder="Enter New Name" value={this.state.uname} id="uname" onChange={(e)=>{this.updatename(e)}}/>
+          <input className="custonInput" placeholder="Enter New Name" value={this.state.uname} id="uname" onChange={(e)=>{this.updatename(e)}}/>
           <br/><input className="custonInput" placeholder="Enter New Email" value={this.state.uemail} id="uemail" onChange={(e)=>{this.updatemail(e)}}/>
-          <br/>
           <input className="custonInput" placeholder="Enter SVStop value :Y or N" value={this.state.updatesv} id="updatesv" onChange={(e)=>{this.updatesv(e)}}/>
           
           <br/><button className="custonUpdateButton" onClick={()=>{this.updateData("UpdatePerson")}}>Update Name or Email</button>
@@ -154,7 +144,6 @@ updatesv(e){
           Add Note to a person
         </p>
         <input className="custonInput" placeholder="Enter userId" value={this.state.uid} id="nid" onChange={(e)=>{this.updatenid(e)}}/>
-        <br/>
           <input className="custonInput" placeholder="Enter note" value={this.state.note} id="note" onChange={(e)=>{this.addnote(e)}}/>
           <br/><button className="custonUpdateButton" onClick={()=>{this.updateData("addNote")}}>Add Note</button>
         <br/>
@@ -163,8 +152,16 @@ updatesv(e){
           <br/>
           <button className="custonUpdateButton" onClick={()=>{this.updateData("addwebhook")}}>Create Webhook</button>
         <br/>
+        <p className="App-intro">
+          Add a person
+        </p>
+          <input className="custonInput" placeholder="Enter Name" value={this.state.name} id="name" onChange={(e)=>{this.addname(e)}}/>
+
+          <input className="custonInput" placeholder="Enter SVStop value :Y or N" value={this.state.addsv} id="addsv" onChange={(e)=>{this.addsv(e)}}/>
+          <br/><button className="custonButton" onClick={()=>{this.updateData("Name")}}>Add Name</button>
+        
           
-          <p className="App-into dn" id="result_header">Result from service</p>
+          <p className="App-into" id="result_header">Result from service</p>
           <div id="success" className ="resultdiv"></div>
       </div>
 

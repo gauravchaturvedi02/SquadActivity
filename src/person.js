@@ -10,7 +10,7 @@ addPerson(name,svstop)
 
         'name': name,
         '1ffb21bbfae79edc2dc8ba28efbf4d8738cd39da':svstop
-
+        
     }
 
     url = 'https://' + company_domain + '.pipedrive.com/v1/persons/?api_token=' + api_token;
@@ -22,7 +22,8 @@ addPerson(name,svstop)
         datatype: "json",
         success:  function(res){
             document.getElementById("result_header").display="block";
-            document.getElementById("success").innerHTML = JSON.stringify(res);
+            document.getElementById("success").innerHTML = "Operation Successfully Completed !! Please check console for service response"
+            console.log(res);
             document.getElementById("name").value = "";
             document.getElementById("addsv").value = "";
         },
@@ -44,7 +45,8 @@ addPerson(name,svstop)
         datatype: "json",
         success:  function(res){
             document.getElementById("result_header").display="block";
-            document.getElementById("success").innerHTML = JSON.stringify(res);
+            document.getElementById("success").innerHTML = "Operation Successfully Completed !! Please check console for service response"
+            console.log(res);
             document.getElementById("sname").value = "";
         },
         error: function (){
@@ -66,7 +68,8 @@ addPerson(name,svstop)
         datatype: "json",
         success: function(res){
             document.getElementById("result_header").display="block";
-            document.getElementById("success").innerHTML = JSON.stringify(res);
+            document.getElementById("success").innerHTML = "Operation Successfully Completed !! Please check console for service response"
+            console.log(res);
             document.getElementById("id").value = "";
         },
         error:  function (){
@@ -96,7 +99,8 @@ addPerson(name,svstop)
         datatype: "json",
         success: function(res){
             document.getElementById("result_header").display="block";
-            document.getElementById("success").innerHTML = JSON.stringify(res);
+            document.getElementById("success").innerHTML = "Operation Successfully Completed !! Please check console for service response"
+            console.log(res);
             document.getElementById("uid").value = "";
             document.getElementById("uname").value = "";
             document.getElementById("uemail").value = "";
@@ -131,7 +135,8 @@ addPerson(name,svstop)
         datatype: "json",
         success: function(res){
             document.getElementById("result_header").display="block";
-            document.getElementById("success").innerHTML = JSON.stringify(res);
+            document.getElementById("success").innerHTML = "Operation Successfully Completed !! Please check console for service response"
+            console.log(res);
             document.getElementById("nid").value = "";
             document.getElementById("note").value = "";
         },
@@ -162,7 +167,8 @@ createWebhook(urlpath,event) {
         datatype: "json",
         success: function(res){
             document.getElementById("result_header").display="block";
-            document.getElementById("success").innerHTML = JSON.stringify(res);
+            document.getElementById("success").innerHTML = "Operation Successfully Completed !! Please check console for service response"
+            console.log(res);
             document.getElementById("nid").value = "";
             document.getElementById("note").value = "";
         },
