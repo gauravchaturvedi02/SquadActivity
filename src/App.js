@@ -12,6 +12,8 @@ class App extends Component {
            name : '',
        }
        this.addname = this.addname.bind(this);
+       this.addsv = this.addsv.bind(this);
+       this.updatesv = this.updatesv.bind(this);
        this.searchname = this.searchname.bind(this);
        this.searchid = this.searchid.bind(this);
        this.updateid = this.updateid.bind(this);
@@ -21,12 +23,29 @@ class App extends Component {
        this.updatenid = this.updatenid.bind(this);
        this.addnote = this.addnote.bind(this);
        this.updateurl =this.updateurl.bind(this);
+       this.wresponse =this.wresponse.bind(this);
    }
    addname(e){
        this.setState({
            name : e.target.value
        })
    }
+   wresponse(e){
+    this.setState({
+        wresponse : e.target.value
+    })
+}
+   addsv(e){
+    this.setState({
+        addsv : e.target.value
+    })
+}
+updatesv(e){
+    this.setState({
+        updatesv : e.target.value
+    })
+}
+   
    addnote(e){
     this.setState({
         note : e.target.value
@@ -70,20 +89,23 @@ class App extends Component {
     }
    
     updateData(name){
-       if(name=="Name"){
-           gblFunc.addPerson(this.state.name);
+       if(name==="Name"){
+           gblFunc.addPerson(this.state.name,this.state.addsv);
        }
-       else if (name== "Searchname"){
+       else if (name=== "Searchname"){
         gblFunc.searchPersonByName(this.state.sname)
        }
-       else if (name== "UpdatePerson"){
-        gblFunc.updatePersonByid(this.state.uid,this.state.uname,this.state.uemail)
+       else if (name=== "UpdatePerson"){
+        gblFunc.updatePersonByid(this.state.uid,this.state.uname,this.state.uemail,this.state.updatesv)
        }
-       else if (name== "addNote"){
+       else if (name=== "addNote"){
         gblFunc.addNote(this.state.nid,this.state.note)
        }
-       else if (name== "addwebhook"){
+       else if (name=== "addwebhook"){
         gblFunc.createWebhook(this.state.url)
+       }
+       else if (name=== "CheckWebhook"){
+        gblFunc.showsvstatus(this.state.wresponse)
        }
        else{
            gblFunc.searchPersonByid(this.state.id)
@@ -97,12 +119,20 @@ class App extends Component {
           <h2>Suqad PipeDrive Integration</h2>
         </div>
         <p className="App-intro">
+          Check Webhook hit for SV Stop
+        </p>
+          <input className="custonInput" placeholder="Enter Webhook Response" value={this.state.wresponse} id="wresponse" onChange={(e)=>{this.wresponse(e)}}/>
+          <br/>
+          <button className="custonButton" onClick={()=>{this.updateData("CheckWebhook")}}>Check SV Status</button>
+        
+        <p className="App-intro">
           Add a person
         </p>
-        <div id="container" className="mainContainer">
           <input className="custonInput" placeholder="Enter Name" value={this.state.name} id="name" onChange={(e)=>{this.addname(e)}}/>
-          <button className="custonButton" onClick={()=>{this.updateData("Name")}}>Add Name</button>
-        <br/>
+          <br/>
+          <input className="custonInput" placeholder="Enter SVStop value :Y or N" value={this.state.addsv} id="addsv" onChange={(e)=>{this.addsv(e)}}/>
+          <br/><button className="custonButton" onClick={()=>{this.updateData("Name")}}>Add Name</button>
+        
         <p className="App-intro">
           Search a person
         </p>
@@ -116,6 +146,9 @@ class App extends Component {
           <input className="custonInput" placeholder="Enter userId" value={this.state.uid} id="uid" onChange={(e)=>{this.updateid(e)}}/>
           <br/><input className="custonInput" placeholder="Enter New Name" value={this.state.uname} id="uname" onChange={(e)=>{this.updatename(e)}}/>
           <br/><input className="custonInput" placeholder="Enter New Email" value={this.state.uemail} id="uemail" onChange={(e)=>{this.updatemail(e)}}/>
+          <br/>
+          <input className="custonInput" placeholder="Enter SVStop value :Y or N" value={this.state.updatesv} id="updatesv" onChange={(e)=>{this.updatesv(e)}}/>
+          
           <br/><button className="custonUpdateButton" onClick={()=>{this.updateData("UpdatePerson")}}>Update Name or Email</button>
           <p className="App-intro">
           Add Note to a person
@@ -130,7 +163,7 @@ class App extends Component {
           <br/>
           <button className="custonUpdateButton" onClick={()=>{this.updateData("addwebhook")}}>Create Webhook</button>
         <br/>
-          </div>
+          
           <p className="App-into dn" id="result_header">Result from service</p>
           <div id="success" className ="resultdiv"></div>
       </div>

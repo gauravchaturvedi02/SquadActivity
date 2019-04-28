@@ -3,12 +3,13 @@ var company_domain='indiamart-2c1db8';
 import $ from 'jquery';
 let url = '';
 let gblFunc = {
-addPerson(name)
+addPerson(name,svstop)
 {
 
     var data = {
 
         'name': name,
+        '1ffb21bbfae79edc2dc8ba28efbf4d8738cd39da':svstop
 
     }
 
@@ -23,11 +24,13 @@ addPerson(name)
             document.getElementById("result_header").display="block";
             document.getElementById("success").innerHTML = JSON.stringify(res);
             document.getElementById("name").value = "";
+            document.getElementById("addsv").value = "";
         },
         error: function (){
             document.getElementById("result_header").display="block";
             document.getElementById("success").innerHTML = "Could not add.Some error Occured";
             document.getElementById("name").value = "";
+            document.getElementById("addsv").value = "";
         }
 
     })
@@ -75,14 +78,15 @@ addPerson(name)
     })
 
 
-},updatePersonByid(id,name,email) {
+},updatePersonByid(id,name,email,svstop) {
 
     url = 'https://' + company_domain + '.pipedrive.com/v1/persons/' + id + '/?api_token=' + api_token;
     
     var data = {
 
         'name': name,
-        'email':email
+        'email':email,
+        '1ffb21bbfae79edc2dc8ba28efbf4d8738cd39da':svstop
 
     }
     $.ajax({
@@ -96,6 +100,7 @@ addPerson(name)
             document.getElementById("uid").value = "";
             document.getElementById("uname").value = "";
             document.getElementById("uemail").value = "";
+            document.getElementById("updatesv").value = "";
         },
         error:  function (){
             document.getElementById("result_header").display="block";
@@ -103,6 +108,7 @@ addPerson(name)
             document.getElementById("uid").value = "";
             document.getElementById("uname").value = "";
             document.getElementById("uemail").value = "";
+            document.getElementById("updatesv").value = "";
         }
 
     })
@@ -168,6 +174,19 @@ createWebhook(urlpath,event) {
         }
 
     })
+
+
+},showsvstatus(res){
+    
+    let svstatus=JSON.parse(res)["current"]["1ffb21bbfae79edc2dc8ba28efbf4d8738cd39da"];
+     
+    if(svstatus == "Y"){
+        document.getElementById("success").innerHTML ="Stop following this lead";
+    }
+    else{
+        document.getElementById("success").innerHTML ="Pursue this lead";
+    }
+    document.getElementById("wresponse").value = "";
 
 
 }
