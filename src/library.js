@@ -1,8 +1,8 @@
 var api_token='e96bc99afcbc4efc1375810c731d33aad2910932';
 var company_domain='indiamart-2c1db8';
-var script = document.createElement('script');
-script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
-script.type = 'text/javascript';
+var jqry = document.createElement('script');
+jqry.src = "https://code.jquery.com/jquery-3.3.1.min.js";
+document.getElementsByTagName('head')[0].appendChild(jqry);
 let url = '';
 
 function addPerson(name,svstop)
@@ -184,4 +184,3 @@ function showsvstatus(res){
 
 
 }
-
